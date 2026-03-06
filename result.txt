@@ -1,0 +1,32 @@
+Team 1 - 503
+     POTTER Sophie - 80
+     SINGH Amrit - 243
+     SIMPSON Charlotte - 180
+Team 2 - 504
+     TAYLOR Megan - 77
+     PARKER Thomas - 248
+     HUNTER Ryan - 179
+Team 3 - 510
+     KHAN Yasmin - 156
+     THOMPSON Daniel - 191
+     REYNOLDS Hannah - 163
+Team 4 - 511
+     PRICE Alex - 34
+     WILKINSON Matthew - 271
+     BAXTER Oliver - 206
+Team 5 - 512
+     CLARKE Katie - 154
+     WOODWARD Sam - 199
+     PATEL Aisha - 159
+Team 6 - 513
+     EVANS Lucy - 72
+     MORRIS Samuel - 229
+     WEBB Joshua - 212
+Team 7 - 518
+     BAILEY Oliver - 139
+     HARRISON Jack - 227
+     FOSTER Callum - 152
+Team 8 - 519
+     HUGHES Liam - 147
+     MARSHALL Emily - 222
+     CARTER Ben - 150
