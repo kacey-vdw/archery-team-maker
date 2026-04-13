@@ -5,14 +5,14 @@ def byScore(player): # total score for 1 person
 def byPair(pair): # total score for two people
     return pair[0][1] + pair[1][1]
 
-def byThree(team): # total score for full team
-    return team[0][1] + team[1][1] + team[2][1]
+def byTeam(team): # total score for full team
+    if team_type == 2:
+        return byPair(team)
+    else:
+        return team[0][1] + team[1][1] + team[2][1]
 
 def imbalance(teams): # how imbalanced is this arrangement?
-    if team_type == 2:
-        total_scores = [byPair(team) for team in teams]
-    elif team_type == 3:
-        total_scores = [byThree(team) for team in teams]
+    total_scores = [byTeam(team) for team in teams]
     return sum((total - ideal) ** 2 for total in total_scores) # return sum of difference from ideal ^2
 
 # get data
@@ -79,7 +79,7 @@ if team_type == 3:
     # add lowest med to highest pair etc
     for i in range(low_med_bound):
         teams[i].append(med_group[i])
-    teams.sort(key=byThree)
+    teams.sort(key=byTeam)
 
 # ---------------------------
 
@@ -102,10 +102,7 @@ while improved:
                     else:
                         teams[i][a], teams[j][b] = teams[j][b], teams[i][a] # undo swap
 
-if team_type == 2:
-    teams.sort(key=byPair)
-elif team_type == 3:
-    teams.sort(key=byThree)
+teams.sort(key=byTeam)
 
 # ---------------------------
 
@@ -116,19 +113,18 @@ output.write("") # empty existing file contents
 output = open("result.txt", "a")
 
 print("The ideal team total is: " + str(round(ideal)))
+print("The difference between the top and bottom team is: " + str(byTeam(teams[int(length/team_type)-1]) - byTeam(teams[0])))
 
 for index, team in enumerate(teams):
-    if team_type == 2:
-        print("Team", index + 1, "-", byPair(teams[index]))
-        output.write("Team " + str(index + 1) + " - " + str(byPair(teams[index])) + "\n")
-    elif team_type == 3:
-        print("Team", index+1, "-", byThree(teams[index]))
-        output.write("Team " + str(index+1) + " - " + str(byThree(teams[index])) + "\n")
+    print("Team", index+1, "-", byTeam(teams[index]))
+    output.write("Team " + str(index+1) + " - " + str(byTeam(teams[index])) + "\n")
     
     for player in team:
         print("     ", player[0], "-", player[1])
         output.write("     " + str(player[0]) + " - " + str(player[1]) + "\n")
         
     print()
-    
 output.close()
+
+print("The values have been saved to result.txt. Press enter to close this window.")
+input()
