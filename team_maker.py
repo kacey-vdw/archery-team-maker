@@ -3,10 +3,10 @@ def byScore(player): # total score for 1 person
     return player[1]
 
 def byPair(pair): # total score for two people
-    return (pair[0][1] + pair[1][1])
+    return pair[0][1] + pair[1][1]
 
 def byThree(team): # total score for full team
-    return (team[0][1] + team[1][1] + team[2][1])
+    return team[0][1] + team[1][1] + team[2][1]
 
 def imbalance(teams): # how imbalanced is this arrangement?
     total_scores = [byThree(team) for team in teams]
@@ -89,6 +89,8 @@ output = open("result.txt", "w")
 output.write("") # empty existing file contents
 
 output = open("result.txt", "a")
+
+print("The ideal team total is: " + str(round(ideal)))
 
 for index, team in enumerate(teams):
     print("Team", index+1, "-", byThree(teams[index]))
