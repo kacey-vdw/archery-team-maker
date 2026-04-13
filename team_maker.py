@@ -1,3 +1,9 @@
+"""
+Written by Kacey Van Der Walt for the University of York Archery Club and North England Universities Archery League
+
+Anyone feel free to use!
+"""
+
 # sort helpers - used for sorting by total score
 def byScore(player): # total score for 1 person
     return player[1]
