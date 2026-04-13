@@ -122,8 +122,12 @@ output.write("") # empty existing file contents
 
 output = open("result.txt", "a")
 
+print("\n --------------------------- \n")
+
 print("The ideal team total is: " + str(round(ideal)))
 print("The difference between the top and bottom team is: " + str(byTeam(teams[int(length/team_type)-1]) - byTeam(teams[0])))
+
+print("\n --------------------------- \n")
 
 for index, team in enumerate(teams):
     print("Team", index+1, "-", byTeam(teams[index]))
@@ -135,6 +139,8 @@ for index, team in enumerate(teams):
         
     print()
 output.close()
+
+print(" --------------------------- \n")
 
 print("The values have been saved to result.txt. Press enter to close this window.")
 input()
