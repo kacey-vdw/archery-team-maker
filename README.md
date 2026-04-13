@@ -11,4 +11,9 @@ There is example data in this repo, please refer to it if there is any confusion
 
 # Running the program
 To run the team maker, edit the `data.txt` file accordingly, and simply execute the `team_maker.py` file! It will open a terminal prompting you to enter the team size, in which
-the results will be shown. They will also be sent to the `result.txt` file for ease of viewing.
+the results will be shown. They will also be sent to the `result.txt` file for ease of viewing. 
+
+# Installing Python
+Python is required to run the `team_maker.py` file.
+- macOS: `brew install python` or https://www.python.org/downloads/macos/
+- Windows: https://www.python.org/downloads/windows/
