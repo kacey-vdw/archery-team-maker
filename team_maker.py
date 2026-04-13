@@ -31,8 +31,18 @@ while (team_type != 2) and (team_type != 3):
 # make data into list of [name, score]
 data = data.splitlines()
 for item in range(0,len(data)):
-    data[item] = data[item].split(",") # item in list is [Name, Score]
-    data[item][1] = int(data[item][1]) # convert Score to int
+    if (data[item] == "") or (data[item] == '\n'):
+        data.pop(item)
+    else:
+        data[item] = data[item].split(",") # item in list is [Name, Score]
+        try:
+            data[item][1] = int(data[item][1].strip()) # convert Score to int, sanitising input
+        except ValueError:
+            print("ERROR: Your input data is invalid. Ensure the score values are numbers [line " + str(item+1) + "]")
+            exit()
+        except IndexError:
+            print("ERROR: Please ensure your values are comma separated (SURNAME name,score) [line " + str(item+1) + "]")
+            exit()
 
 length = len(data)
 ideal = (sum(byScore(player) for player in data) / length) * team_type # ideal total team score
